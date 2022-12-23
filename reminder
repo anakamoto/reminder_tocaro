@@ -1,0 +1,8 @@
+$url = "https://hooks.tocaro.im/integrations/inbound_webhook/9qmvo4mscurp3oeiccl7jooir8khkh1d"
+$body = ConvertTo-JSON @{
+    title = '連絡'
+    text = '経費申請は明日が締め切りなので今日までに申請してね'
+}
+$body = [Text.Encoding]::UTF8.GetBytes($body)
+# Postする
+Invoke-RestMethod -Method Post -Uri $url -Body $body -ContentType 'application/json'
